@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:nhs_covid_19/screens/landing/landing_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +13,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: TestingMarkdown(),
+      home: LandingScreen(
+        title: "COVID-19",
+      ),
     );
   }
 }
