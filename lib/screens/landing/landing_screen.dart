@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nhs_covid_19/screens/otb_landing/otb_landing_screen.dart';
+import 'package:nhs_covid_19/screens/otb_landing/widgets/otb_landing_screen_widgets.dart';
 
 import 'widgets/landing_screen_widgets.dart';
 
@@ -22,7 +24,17 @@ class LandingScreen extends StatelessWidget {
             LandingButton(
               title: "Guidelines",
               bgColor: Colors.blue,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => OTBLandingScreen(
+                      title: "Guidelines",
+                      graphQlKey: "guidelines",
+                    ),
+                  ),
+                );
+              },
             ),
           ],
         ),
