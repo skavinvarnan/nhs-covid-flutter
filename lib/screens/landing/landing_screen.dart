@@ -11,21 +11,65 @@ class LandingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(this.title)),
-      body: Center(
-        child: ListView(
-          padding: EdgeInsets.all(8.0),
+      body: Container(
+        child: Stack(
           children: <Widget>[
-            LandingButton(
-              title: "Guidelines",
-              bgColor: Colors.blue,
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => GuidelinesScreen(),
-                  ),
-                );
-              },
+            Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: EdgeInsets.only(top: 16.0, left: 8.0, right: 8.0),
+                child: Row(
+                  children: <Widget>[
+                    LandingButton(
+                      title: "Guidelines",
+                      bgColor: Colors.blue,
+                      isLocked: false,
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => GuidelinesScreen(),
+                          ),
+                        );
+                      },
+                    ),
+                    Spacer(),
+                    LandingButton(
+                      title: "Feature 1",
+                      bgColor: Colors.cyan,
+                      isLocked: true,
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            Align(
+              alignment: Alignment.center,
+              child: Text("message of the day"),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 16.0, left: 8.0, right: 8.0),
+                child: Row(
+                  children: <Widget>[
+                    LandingButton(
+                      title: "Feature 2",
+                      bgColor: Colors.indigo,
+                      isLocked: true,
+                      onPressed: () {},
+                    ),
+                    Spacer(),
+                    LandingButton(
+                      title: "Feature 3",
+                      bgColor: Colors.teal,
+                      isLocked: false,
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
