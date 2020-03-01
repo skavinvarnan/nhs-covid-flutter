@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class OTBLandingButton extends StatelessWidget {
+class GuidelineButton extends StatelessWidget {
   final String title;
   final Function onPressed;
   final MaterialColor bgColor;
 
-  OTBLandingButton({
+  GuidelineButton({
     @required this.title,
     @required this.onPressed,
     @required this.bgColor,
@@ -27,14 +27,13 @@ class OTBLandingButton extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(16.0)),
           ),
           width: double.infinity,
-          height: 55,
+          height: 100,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Align(
-              alignment: Alignment.centerLeft,
+            child: Center(
               child: Text(
                 this.title,
-                style: TextStyle(fontSize: 17, color: Colors.white),
+                style: TextStyle(fontSize: 22, color: Colors.white),
               ),
             ),
           ),

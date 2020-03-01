@@ -4,7 +4,10 @@ import 'package:nhs_covid_19/screens/landing/landing_screen.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:nhs_covid_19/utils/constants.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   final ValueNotifier<GraphQLClient> client = ValueNotifier(
