@@ -38,18 +38,18 @@ class Guidelines extends StatelessWidget {
         FetchMore fetchMore,
       }) {
         if (result.hasException) {
-          return Text(result.exception.toString());
-        }
-
-        if (result.loading) {
           return Center(
             child: Text(
-              'Loading...',
+              'Error loading. Please try again',
               style: TextStyle(
                 fontSize: 20,
               ),
             ),
           );
+        }
+
+        if (result.loading) {
+          return Center(child: CircularProgressIndicator());
         }
 
         // it can be either Map or List
