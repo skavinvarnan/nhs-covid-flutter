@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:nhs_covid_19/screens/landing/landing_screen.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:nhs_covid_19/utils/constants.dart';
