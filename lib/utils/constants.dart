@@ -1,3 +1,3 @@
 class Constants {
-  static String appUrl = "http://192.168.0.196:1337/graphql";
+  static String appUrl = "http://167.99.74.189:4547/graphql";
 }
