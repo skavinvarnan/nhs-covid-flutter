@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nhs_covid_19/screens/landing/landing_screen.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:nhs_covid_19/utils/constants.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +19,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
     return GraphQLProvider(
       client: client,
       child: CacheProvider(
