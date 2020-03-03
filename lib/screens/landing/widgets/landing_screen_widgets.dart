@@ -35,7 +35,8 @@ class LandingButton extends StatelessWidget {
               Center(
                 child: Text(
                   this.title,
-                  style: TextStyle(fontSize: 20, color: Colors.white),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 16, color: Colors.white),
                 ),
               ),
               Align(

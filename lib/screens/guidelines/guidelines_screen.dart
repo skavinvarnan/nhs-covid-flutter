@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:nhs_covid_19/screens/guideline_list/guideline_list_screen.dart';
 import 'package:nhs_covid_19/screens/guideline_list/widgets/guideline_list_screen_widgets.dart';
+import 'package:nhs_covid_19/screens/guidelines/widgets/guideline_screen_widgets.dart';
 
 class GuidelinesScreen extends StatelessWidget {
   @override
@@ -38,6 +39,7 @@ class Guidelines extends StatelessWidget {
         FetchMore fetchMore,
       }) {
         if (result.hasException) {
+          print(result.exception.toString());
           return Center(
             child: Text(
               'Error loading. Please try again',
@@ -59,7 +61,7 @@ class Guidelines extends StatelessWidget {
           itemCount: listItems.length,
           itemBuilder: (context, index) {
             final listItem = listItems[index];
-            return GuidelineListButton(
+            return GuidelineButton(
               title: "${listItem['order']}. ${listItem['title']}",
               onPressed: () {
                 Navigator.push(

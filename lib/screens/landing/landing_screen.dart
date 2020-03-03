@@ -21,7 +21,7 @@ class LandingScreen extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     LandingButton(
-                      title: "Guidelines",
+                      title: "COVID-19 Guidelines",
                       bgColor: Colors.blue,
                       isLocked: false,
                       onPressed: () {

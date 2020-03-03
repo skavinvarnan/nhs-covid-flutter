@@ -27,14 +27,13 @@ class GuidelineListButton extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(16.0)),
           ),
           width: double.infinity,
-          height: 55,
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
                 this.title,
-                style: TextStyle(fontSize: 17, color: Colors.white),
+                style: TextStyle(fontSize: 15, color: Colors.white),
               ),
             ),
           ),
