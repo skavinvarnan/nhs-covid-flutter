@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nhs_covid_19/client_provider.dart';
 import 'package:nhs_covid_19/screens/landing/landing_screen.dart';
-import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:nhs_covid_19/utils/constants.dart';
 import 'package:flutter/services.dart';
 
@@ -20,12 +19,12 @@ class MyApp extends StatelessWidget {
     return ClientProvider(
       uri: Constants.appUrl,
       child: MaterialApp(
-        title: 'Flutter Demo',
+        title: 'Guidelines LTHTR',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
         home: LandingScreen(
-          title: "COVID-19",
+          title: "Guidelines LTHTR",
         ),
       ),
     );

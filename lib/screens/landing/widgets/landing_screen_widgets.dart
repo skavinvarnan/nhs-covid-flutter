@@ -28,7 +28,7 @@ class LandingButton extends StatelessWidget {
             ),
             borderRadius: BorderRadius.all(Radius.circular(12.0)),
           ),
-          width: 150,
+          width: double.infinity,
           height: 80,
           child: Stack(
             children: <Widget>[
@@ -36,7 +36,7 @@ class LandingButton extends StatelessWidget {
                 child: Text(
                   this.title,
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 16, color: Colors.white),
+                  style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               ),
               Align(

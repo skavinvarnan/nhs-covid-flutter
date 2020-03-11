@@ -18,58 +18,24 @@ class LandingScreen extends StatelessWidget {
               alignment: Alignment.topCenter,
               child: Padding(
                 padding: EdgeInsets.only(top: 16.0, left: 8.0, right: 8.0),
-                child: Row(
-                  children: <Widget>[
-                    LandingButton(
-                      title: "COVID-19 Guidelines",
-                      bgColor: Colors.blue,
-                      isLocked: false,
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => GuidelinesScreen(),
-                          ),
-                        );
-                      },
-                    ),
-                    Spacer(),
-                    LandingButton(
-                      title: "Feature 1",
-                      bgColor: Colors.cyan,
-                      isLocked: true,
-                      onPressed: () {},
-                    ),
-                  ],
+                child: LandingButton(
+                  title: "COVID-19 Guidelines",
+                  bgColor: Colors.blue,
+                  isLocked: false,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => GuidelinesScreen(),
+                      ),
+                    );
+                  },
                 ),
               ),
             ),
             Align(
               alignment: Alignment.center,
-              child: Text("message of the day"),
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 16.0, left: 8.0, right: 8.0),
-                child: Row(
-                  children: <Widget>[
-                    LandingButton(
-                      title: "Feature 2",
-                      bgColor: Colors.indigo,
-                      isLocked: true,
-                      onPressed: () {},
-                    ),
-                    Spacer(),
-                    LandingButton(
-                      title: "Feature 3",
-                      bgColor: Colors.teal,
-                      isLocked: false,
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
-              ),
+              child: Text("Loading...", style: TextStyle(color: Colors.black, fontSize: 20),),
             ),
           ],
         ),
