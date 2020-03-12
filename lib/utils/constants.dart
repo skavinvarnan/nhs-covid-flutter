@@ -1,3 +1,3 @@
 class Constants {
-  static String appUrl = "https://nhs.craftedclick.com/graphql";
+  static String appUrl = "https://nhs.craftedclick.com/nhs_graphql";
 }

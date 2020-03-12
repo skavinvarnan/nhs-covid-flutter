@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:nhs_covid_19/screens/guidelines/guidelines_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'widgets/landing_screen_widgets.dart';
 
@@ -9,6 +13,10 @@ class LandingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(
+      Duration(milliseconds: 100),
+      () => _showDisclaimerOnce(context),
+    );
     return Scaffold(
       appBar: AppBar(title: Text(this.title)),
       body: Container(
@@ -35,11 +43,55 @@ class LandingScreen extends StatelessWidget {
             ),
             Align(
               alignment: Alignment.center,
-              child: Text("Loading...", style: TextStyle(color: Colors.black, fontSize: 20),),
-            ),
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: MessageOfTheDay(),
+              ),
+            )
           ],
         ),
       ),
+    );
+  }
+
+  void _showDisclaimerOnce(BuildContext context) async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    var test = prefs.getBool("showed_disclaimer");
+    if (test != null) {
+      return;
+    }
+
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Disclaimer'),
+          content: SingleChildScrollView(
+            child: Text(
+                "The contents of this App were collated by Lancashire Teaching Hospitals NHS Foundation Trust (LTHTR). As such, the use of this App by any person(s), including health-professionals working at other hospitals, is at their own risk, and LTHTR makes no representation or guarantee as to the adequacy or completeness of any of the information herein contained in this App, or its compatibility with the policies or procedures of other hospitals. The App is intended as a tool to support healthcare-professionals working within LTHTR and is provided as a source of reference only. This App will be updated from time to time and it is the responsibility of the person downloading the App to ensure that the most recent version is installed and in use. LTHTR shall not be liable for any claims or losses arising from the use or misuse of this App, its contents, and any omissions from its contents or otherwise. All users are advised that other hospitals will have documentation covering the subject matter of this App. Such guidance documents should be used by persons working in hospitals other than LTHTR and, in these circumstances, locally issued guidance takes precedence over any information or guidance supplied within this App."),
+          ),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('Disagree'),
+              onPressed: () {
+                if (Platform.isAndroid) {
+                  SystemNavigator.pop();
+                }
+              },
+            ),
+            FlatButton(
+              child: Text('Agree'),
+              onPressed: () {
+                prefs.setBool("showed_disclaimer", true);
+
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
     );
   }
 }

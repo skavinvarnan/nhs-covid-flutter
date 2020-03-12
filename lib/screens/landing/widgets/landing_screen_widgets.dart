@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 
 class LandingButton extends StatelessWidget {
   final String title;
@@ -60,5 +61,45 @@ class LandingButton extends StatelessWidget {
     } else {
       return SizedBox.shrink();
     }
+  }
+}
+
+class MessageOfTheDay extends StatelessWidget {
+
+  @override
+  Widget build(BuildContext context) {
+    String query = """
+      query {
+        utilities {
+          messageOfTheDay
+        }
+      }
+    """;
+    return Query(
+      options: QueryOptions(documentNode: gql(query)),
+      builder: (
+        QueryResult result, {
+        VoidCallback refetch,
+        FetchMore fetchMore,
+      }) {
+        if (result.hasException) {
+          print(result.exception.toString());
+          return Text("");
+        }
+
+        if (result.loading) {
+          return Text("Loading...", style: TextStyle(color: Colors.black, fontSize: 20),);
+        }
+
+        // it can be either Map or List
+        List listItems = result.data['utilities'];
+
+        if (listItems.length > 0) {
+          return Text(listItems[0]["messageOfTheDay"], style: TextStyle(color: Colors.black, fontSize: 20,), textAlign: TextAlign.center,);
+        } else {
+          return Text("");
+        }
+      },
+    );
   }
 }
