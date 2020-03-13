@@ -22,12 +22,12 @@ class MyApp extends StatelessWidget {
     return ClientProvider(
       uri: Constants.appUrl,
       child: MaterialApp(
-        title: 'Guidelines LTHTR',
+        title: 'LTH Guidelines',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
         home: LandingScreen(
-          title: "Guidelines LTHTR",
+          title: "LTH Guidelines",
         ),
       ),
     );
