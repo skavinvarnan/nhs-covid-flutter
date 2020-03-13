@@ -1,3 +1,5 @@
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_analytics/observer.dart';
 import 'package:flutter/material.dart';
 import 'package:nhs_covid_19/client_provider.dart';
 import 'package:nhs_covid_19/screens/landing/landing_screen.dart';
@@ -19,6 +21,7 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
+    FirebaseAnalytics analytics = FirebaseAnalytics();
     return ClientProvider(
       uri: Constants.appUrl,
       child: MaterialApp(
@@ -29,6 +32,9 @@ class MyApp extends StatelessWidget {
         home: LandingScreen(
           title: "LTH Guidelines",
         ),
+        navigatorObservers: [
+          FirebaseAnalyticsObserver(analytics: analytics),
+        ],
       ),
     );
   }

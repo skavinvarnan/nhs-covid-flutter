@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>888172939392-dc42ki3rpg8tissseiddkkga1bp5fifj.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.888172939392-dc42ki3rpg8tissseiddkkga1bp5fifj</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBPeqXkVnskvK8cnagLf9yY7Fn_BxDcCgA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>888172939392</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.nhs.lth.guidelines</string>
+	<key>PROJECT_ID</key>
+	<string>lth-app-823bc</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lth-app-823bc.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:888172939392:ios:1fe29f3d038b1a45f63e65</string>
+	<key>DATABASE_URL</key>
+	<string>https://lth-app-823bc.firebaseio.com</string>
+</dict>
+</plist>
