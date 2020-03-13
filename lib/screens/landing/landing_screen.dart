@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:nhs_covid_19/screens/guidelines/guidelines_screen.dart';
@@ -54,7 +55,37 @@ class LandingScreen extends StatelessWidget {
     );
   }
 
+  void _checkIfActiveInternetConnectionPresent(BuildContext context) async {
+    check().then((internet) {
+      if (internet != null && internet) {
+        return;
+      }
+      showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Error'),
+            content: SingleChildScrollView(
+              child: Text(
+                  "Your internet connection seems to be unstable. Please have an active internet connection and try launching the app."),
+            ),
+            actions: <Widget>[
+              FlatButton(
+                child: Text('OK'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    });
+  }
+
   void _showDisclaimerOnce(BuildContext context) async {
+    _checkIfActiveInternetConnectionPresent(context);
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
     var test = prefs.getBool("showed_disclaimer");
@@ -93,5 +124,15 @@ class LandingScreen extends StatelessWidget {
         );
       },
     );
+  }
+
+  Future<bool> check() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    if (connectivityResult == ConnectivityResult.mobile) {
+      return true;
+    } else if (connectivityResult == ConnectivityResult.wifi) {
+      return true;
+    }
+    return false;
   }
 }
