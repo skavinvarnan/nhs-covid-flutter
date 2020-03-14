@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
     return ClientProvider(
       uri: Constants.appUrl,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'LTH Guidelines',
         theme: ThemeData(
           primarySwatch: Colors.blue,
