@@ -17,6 +17,12 @@ class OTBDetailScreen extends StatelessWidget {
         child: Container(
           child: Markdown(
             data: this.markdown,
+            styleSheet: MarkdownStyleSheet.fromTheme(Theme.of(context))
+                .copyWith(
+                    p: Theme.of(context)
+                        .textTheme
+                        .body1
+                        .copyWith(fontSize: 20.0)),
             onTapLink: (href) {
               print(href);
             },

@@ -33,7 +33,7 @@ class GuidelineButton extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Text(
                 this.title,
-                style: TextStyle(fontSize: 15, color: Colors.white),
+                style: TextStyle(fontSize: 17, color: Colors.white),
               ),
             ),
           ),
