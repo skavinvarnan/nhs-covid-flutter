@@ -62,7 +62,7 @@ class Guidelines extends StatelessWidget {
           itemBuilder: (context, index) {
             final listItem = listItems[index];
             return GuidelineButton(
-              title: "${listItem['order']}. ${listItem['title']}",
+              title: "${listItem['title']}",
               onPressed: () {
                 Navigator.push(
                   context,
