@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:nhs_covid_19/screens/webview/webview_screen.dart';
 
 class OTBDetailScreen extends StatelessWidget {
   final String markdown;
@@ -24,7 +25,14 @@ class OTBDetailScreen extends StatelessWidget {
                         .body1
                         .copyWith(fontSize: 20.0)),
             onTapLink: (href) {
-              print(href);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => WebViewScreen(
+                    url: href,
+                  ),
+                ),
+              );
             },
           ),
         ),
